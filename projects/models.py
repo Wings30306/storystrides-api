@@ -32,6 +32,7 @@ class DraftBadge(models.Model):
 
     class Meta:
         unique_together = ('draft', 'badge')
+        verbose_name_plural = "draft badges"
 
     def __str__(self):
         return f"{self.badge_type} badge for {self.draft}"

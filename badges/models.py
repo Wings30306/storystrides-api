@@ -13,6 +13,9 @@ class Badge(models.Model):
 class Category(models.Model):
     name = models.CharField(max_length=100, unique=True)
 
+    class Meta:
+        verbose_name_plural = "categories"
+
     def __str__(self):
         return self.name
     
@@ -22,6 +25,7 @@ class BadgeCategory(models.Model):
 
     class Meta:
         unique_together = ('badge', 'category')
+        verbose_name_plural = "badge categories"
 
     def __str__(self):
         return f"{self.badge.full_name} in {self.category.name}"
