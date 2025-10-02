@@ -16,7 +16,16 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
+from api.views import ApiOverview, all_profiles, profile_detail, all_projects, project_detail, project_drafts, all_badges
 
 urlpatterns = [
+
     path('admin/', admin.site.urls),
+    path('profiles/', all_profiles, name='all-profiles'),
+    path('profiles/<int:pk>/', profile_detail, name='profile-detail'),
+    path('projects/', all_projects, name='all-projects'),
+    path('projects/<int:pk>/', project_detail, name='project-detail'),
+    path('projects/<int:pk>/drafts/', project_drafts, name='project-drafts'),
+    path('badges/', all_badges, name='all-badges'),
+    path('', ApiOverview, name='api-overview'),
 ]
